@@ -91,6 +91,11 @@ Generalizes from map-reduce to arbitrary DAG data pipelines, optimized for itera
 \end{frame}
 
 \begin{frame}{Data pipelines and databases (frequently encountered)}
+
+It's not uncommon to use several frameworks at once, whether they're orthogonal or not. These are the ones I used or heard about most often.
+
+(The fact that almost all of these are Apache doesn't imply similarity.)
+
 \begin{description}
 \item[Apache Storm] real-time analysis, a fault-tolerant data pipeline.
 \item[Apache Drill] rapid response to queries (which I think would be ideal for plotting).
@@ -106,18 +111,19 @@ Generalizes from map-reduce to arbitrary DAG data pipelines, optimized for itera
 \end{frame}
 
 \begin{frame}{Data formats (frequently encountered)}
-\begin{description}
 
+It's also not uncommon to mix file formats.
+
+\begin{description}
 \item[CSV] table of primitives: numbers, booleans, strings (text).
 \item[JSON] arrays and maps of primitives (text).
 \item[XML] structures with an optional schema (text).
 \item[Apache Avro] JSON-like binary format with algebraic data types (arrays, maps, records, and unions of primitives). Similar to \textcolor{darkblue}{Thrift} and \textcolor{darkblue}{Protocol buffers}.
 \item[Parquet] similar to Avro, but stored column-wise for speed.
 \item[Sequence files] structured container of arbitrary binary blobs intended as splitting hints for Hadoop.
-
-
-
 \end{description}
+
+And many application-specific formats.
 \end{frame}
 
 
