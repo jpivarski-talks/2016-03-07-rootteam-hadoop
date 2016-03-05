@@ -90,12 +90,16 @@ Generalizes from map-reduce to arbitrary DAG data pipelines, optimized for itera
 \end{block}
 \end{frame}
 
-\begin{frame}{Major tools}
+\begin{frame}{Major tools (that I frequently encountered)}
 \begin{description}
 \item[Apache Storm] real-time analysis, a fault-tolerant data pipeline.
 \item[Apache Drill] rapid response to queries (which I think would be ideal for plotting).
 \item[Apache HBase] random-access tabular database on Hadoop (column-oriented key-value).
-\item[Apache Mesos] cluster abstraction (using ZooKeeper), {\it includes a C++ API.}
+\item[Apache Hive] SQL over Hadoop ({\it not} random-access).
+\item[Apache Pig] map-filter-groupby in a custom language, ``eats anything.''
+
+
+\item[Apache Mesos] cluster abstraction (using ZooKeeper).
 \item[Apache Kafka] message queue.
 \item[ElasticSearch] full-text search engine.
 \item[MongoDB] indexable JSON document store.
