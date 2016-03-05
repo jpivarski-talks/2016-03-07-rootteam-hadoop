@@ -44,11 +44,28 @@ This talk is about the differences I have seen between the two communities, with
 
 \begin{frame}{Language choice}
 \begin{block}{Short answer}
-Commercial distributed systems are usually implemented in Java, and so distributed data processing systems like Hadoop and Spark are JVM (Java or compatible language).
+Commercial distributed systems are usually implemented in Java, and so distributed data processing systems like Hadoop and Spark are also on the Java Virtual Machine (JVM).
 \end{block}
 
 \begin{block}{Long answer}
 This is the topic I get the most questions about, so I'll break it down by project.
+
+\begin{itemize}
+\item Major credit card company: SAS and Python ({\it pure} Python, not even Numpy).
+
+\item Web advertisement recommendation: Python.
+
+\item NASA (open source Project Matsu): Java simply because it was a new project using Hadoop. I think they ordinarily use C++ for image processing.
+
+\item Monitoring auto traffic: Storm real-time processor (which is Clojure, a JVM language, but I wrote my code in Scala).
+
+\item Auto insurance: SQL over Hadoop, using Hive and Pig. User-defined functions were in Java because Hive and Pig (and Hadoop) are Java.
+
+\item Military project: extremely Java-centric.
+
+\item Data science startup: most data analyses in R, some in Python, but the web-facing data backbone was strictly Java.
+
+\end{itemize}
 \end{block}
 \end{frame}
 
