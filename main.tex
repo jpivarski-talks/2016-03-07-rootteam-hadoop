@@ -67,9 +67,23 @@ This is the topic I get the most questions about, so I'll break it down by proje
 \item Military project: extremely Java-centric.
 
 \item Data science start-up: most data analyses in R, some in Python, but the web-facing data backbone was strictly Java.
-
 \end{itemize}
 \end{frame}
+
+\begin{frame}{Major tools}
+\begin{description}
+\item[Apache Hadoop] framework for performing map-reduce calculations. Used as a foundation for a big data cluster because of the mind-share that developed around\ldots
+\begin{itemize}
+\item its distributed filesystem HDFS (even variants like MapR, which don't use HDFS, use its API).
+\item its suite of InputFormats that split files by logical records.
+\item its Zookeeper, which coordinates job configuration and synchronization across a distributed service.
+\end{itemize}
+
+
+
+\end{description}
+\end{frame}
+
 
 
 \end{document}
