@@ -76,9 +76,17 @@ This is the topic I get the most questions about, so I'll break it down by proje
 \begin{block}{Apache Hadoop}
 Framework for performing map-reduce calculations. Used as a foundation for a big data cluster because of\ldots
 \begin{itemize}
-\item its distributed filesystem HDFS (even variants like MapR, which don't use HDFS, use its API).
-\item its suite of InputFormats that split files by logical records.
-\item its Zookeeper, which coordinates job configuration and synchronization across a distributed service.
+\item the HDFS distributed filesystem (even variants like MapR, which don't use HDFS, use its API),
+\item its suite of InputFormats that split files by logical records,
+\item ZooKeeper, which coordinates job configuration and synchronization across a distributed service.
+\end{itemize}
+\end{block}
+
+\begin{block}{Apache Spark}
+Generalizes from map-reduce to arbitrary DAG data pipelines, optimized for iterative procedures, with an interactive prompt. May be used on any cluster manager, but usually Hadoop (ZooKeeper) or Apache Mesos.
+\begin{itemize}
+\item User interfaces: native Scala, Java, Python (through sockets), and R (through pipes).
+\item Spark-Streaming (real-time), Spark-SQL, and MLLib (machine learning).
 \end{itemize}
 \end{block}
 
