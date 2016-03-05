@@ -108,11 +108,12 @@ Generalizes from map-reduce to arbitrary DAG data pipelines, optimized for itera
 \begin{frame}{Data formats (frequently encountered)}
 \begin{description}
 
-\item[CSV] table of primitives (text).
+\item[CSV] table of primitives: numbers, booleans, strings (text).
 \item[JSON] arrays and maps of primitives (text).
 \item[Apache Avro] JSON-like binary format with algebraic data types (arrays, maps, records, and unions of primitives). Similar to \textcolor{darkblue}{Thrift} and \textcolor{darkblue}{Protocol buffers}.
-\item[Parquet] similar to Avro, but stored column-wise for rapid access.
-\item[Sequence files] structured container of arbitrary binary blobs; hints for Hadoop splitting.
+\item[Parquet] similar to Avro, but stored column-wise for speed.
+\item[Sequence files] structured container of arbitrary binary blobs intended as splitting hints for Hadoop.
+
 
 
 \end{description}
