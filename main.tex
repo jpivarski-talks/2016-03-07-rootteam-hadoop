@@ -210,7 +210,7 @@ User supplies a ``map'' function and a ``reduce'' function.
 \begin{description}
 \item[map] converts each input {\tt X} into key/value {\tt pair<K,V>}.
 \item[reduce] sees all values {\tt iterator<V>} associated with a given key {\tt K} and produces some output {\tt Z}.
-\item[secondary sort] a trick to sort {\tt iterator<V>} as a by-product of Hadoop's shuffling of keys.
+\item[secondary sort] a trick to sort {\tt iterator<V>} as a by-product of Hadoop's key shuffling.
 \end{description}
 
 \begin{center}
