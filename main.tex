@@ -210,7 +210,6 @@ User supplies a ``map'' function and a ``reduce'' function.
 \begin{verbatim}
 iterator<X> filter(iterator<X>, function<bool(X)>);
 iterator<Y> map(iterator<X>, function<Y(X)>);
-
 iterator<X> flatten(iterator<list<X>>);
 iterator<Y> flatMap(iterator<X>, function<list<Y>(X)>);
 
