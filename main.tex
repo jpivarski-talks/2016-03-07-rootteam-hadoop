@@ -204,7 +204,7 @@ iterator<X> flatten(iterator<list<X>>);
 
 iterator<Y> flatMap(iterator<X>, function<list<Y>(X)>);
 
-Y reduce(iterator<Y>, function<Y(Y,Y)>);      // sum, max, min, etc.
+Y reduce(iterator<Y>, function<Y(Y,Y)>);      // sum, max, etc.
 
 map<K,list<V>> groupByKey(iterator<pair<K,V>>);
 
