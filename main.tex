@@ -195,6 +195,10 @@ Apache includes competing projects that reproduce each other's functionality: \t
 
 \begin{frame}{Map-reduce paradigm}
 User supplies a ``map'' function and a ``reduce'' function.
+\begin{description}
+\item[map] converts each input {\tt X} into a key value pair: {\tt pair<K,V>}
+\item[reduce] sees all values {\tt iterator<V>} with a given key {\tt K} and produces some output {\tt Z}.
+\end{description}
 
 \begin{center}
 \includegraphics[width=0.8\linewidth]{map-reduce.png}
