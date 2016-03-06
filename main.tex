@@ -161,8 +161,15 @@ Hadoop is both a cluster and an analysis framework, like CRAB and CMSSW combined
 \end{block}
 
 \begin{block}{Hundred flowers blooming}
-Hadoop itself is a mess: user code must be compiled against a Hadoop version, the version history is complex and branches (0.23 is newer than 1.0), that JAR must include dependencies but not include Hadoop, common features like secondary sorting are actually just common user hacks\ldots
+Hadoop itself is a mess:
+\begin{itemize}
+\item user code must be compiled against a Hadoop version,
+\item the version history is complex and branches (0.23 is newer than 1.0),
+\item that JAR must include dependencies but not include Hadoop,
+\item common features like secondary sorting are actually just common user hacks\ldots
+\end{itemize}
 
+\vspace{0.5 cm}
 Pretty quickly, everyone was writing layers on top of Hadoop. Just the Python ones: \textcolor{darkblue}{mrjob}, \textcolor{darkblue}{dumbo}, \textcolor{darkblue}{luigi}, \textcolor{darkblue}{hadoopy}, \textcolor{darkblue}{pydoop}, \textcolor{darkblue}{happy}, \textcolor{darkblue}{hipy}, I wrote one\ldots
 \end{block}
 \end{frame}
