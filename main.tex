@@ -243,9 +243,8 @@ Hadoop's ``mappers'' are actually {\tt flatMap} (which includes the possibility 
 \begin{frame}[fragile]{Example of using primitives}
 Suppose we want to fill histograms of $p_T$ for tracks with {\tt fValid} from events with {\tt fTemperature > 20}, with one histogram for each distinct combination of {\tt fTriggerBits}.
 
-\vfill
+\vspace{0.2 cm}
 On the Spark prompt (Scala syntax):
-
 \begin{verbatim}
 val dataset = sc.rootRDD[Event]("root://fnal.gov/*.root")
 
