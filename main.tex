@@ -193,24 +193,27 @@ Apache includes competing projects that reproduce each other's functionality: \t
 \end{block}
 \end{frame}
 
-\begin{frame}[fragile]{Map-reduce paradigm}
-Standard functional primitives in C++ type syntax:
+\begin{frame}[fragile]{Functional primitives in C++ type syntax}
 \begin{verbatim}
-iterator<X> filter(iterator<X>, function<bool(X)>)
-iterator<Y> map(iterator<X>, function<Y(X)>)
-iterator<Y> flatMap(iterator<X>, function<iterator<Y>(X)>)
+iterator<X> filter(iterator<X>, function<bool(X)>);
 
-Y reduce(iterator<Y>, function<Y(Y,Y)>)
+iterator<Y> map(iterator<X>, function<Y(X)>);
 
-map<K,vector<V>> groupByKey(iterator<pair<K,V>>)
+iterator<X> flatten(iterator<list<X>>);
+
+iterator<Y> flatMap(iterator<X>, function<list<Y>(X)>);
+
+Y reduce(iterator<Y>, function<Y(Y,Y)>);
+
+map<K,list<V>> groupByKey(iterator<pair<K,V>>);
 
 map<K,V> reduceByKey(iterator<pair<K,V>>,     // input data
-                     function<V(V,V)>)        // merge
+                     function<V(V,V)>);       // merge
 
 map<K,Z> aggregateByKey(iterator<pair<K,V>>,  // input data
                         Z,                    // starting value
                         function<Z(V,Z)>,     // increment
-                        function<Z(Z,Z)>)     // combine
+                        function<Z(Z,Z)>);    // combine
 \end{verbatim}
 
 %% \vspace{0.5 cm}
@@ -219,8 +222,8 @@ map<K,Z> aggregateByKey(iterator<pair<K,V>>,  // input data
 %% SELECT <map> FROM source WHERE <filter> GROUP BY <groupByKey>
 %% \end{verbatim}
 
-\vspace{0.5 cm}
-Hadoop ``mappers'' are as powerful as {\tt flatMap} and Hadoop ``reducers'' are actually {\tt aggregateByKey}.
-\end{frame}
+%% \vspace{0.5 cm}
+%% Hadoop ``mappers'' are as powerful as {\tt flatMap} and Hadoop ``reducers'' are actually {\tt aggregateByKey}.
+%% \end{frame}
 
 \end{document}
