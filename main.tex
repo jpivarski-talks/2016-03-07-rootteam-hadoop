@@ -218,7 +218,7 @@ iterator<Y> flatten(iterator<list<Y>>);
 iterator<Y> flatMap(iterator<X>, function<list<Y>(X)>);
 
 Y reduce(iterator<Y>, function<Y(Y,Y)>);      // sum, max, etc.
-Z aggregate(iterator<Y>, Z, function<Z(Y,Z)>);
+Z aggregate(iterator<Y>, Z, function<Z(Y,Z)>);   // more general
 
 map<K,list<V>> groupByKey(iterator<pair<K,V>>);  // like SQL
 
