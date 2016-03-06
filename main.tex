@@ -219,8 +219,8 @@ User supplies a ``map'' function and a ``reduce'' function.
 \begin{verbatim}
 iterator<X> filter(iterator<X>, function<bool(X)>);
 iterator<Y> map(iterator<X>, function<Y(X)>);
-iterator<Y> flatten(iterator<list<Y>>);
-iterator<Y> flatMap(iterator<X>, function<list<Y>(X)>);
+iterator<Y> flatten(iterator<iterator<Y>>);
+iterator<Y> flatMap(iterator<X>, function<iterator<Y>(X)>);
 
 Y reduce(iterator<Y>, function<Y(Y,Y)>);      // sum, max, etc.
 Z aggregate(iterator<Y>, Z, function<Z(Y,Z)>);  // more general
