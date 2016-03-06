@@ -137,7 +137,7 @@ It's also not uncommon to mix file formats and use a lot of text-based formats. 
 \item[JSON] arrays and maps of primitives (text).
 \item[XML] structures with an optional schema (text).
 \item[Apache Avro] JSON-like binary format with algebraic data types (arrays, maps, records, and unions of primitives). Similar to \textcolor{darkblue}{Thrift} and \textcolor{darkblue}{Protocol buffers}.
-\item[Parquet] similar to Avro, but stored column-wise for speed.
+\item[Parquet] similar to Avro, but stored column-wise for speed. Similar to \textcolor{darkblue}{ORC}, Hive's format for SQL tables.
 \item[Sequence files] structured container of arbitrary binary blobs intended as splitting hints for Hadoop.
 \item[Intermediate serialization in Hadoop and Spark] using native Java serialization, Kryo, and Hadoop Writables.
 \item[Python pickle files] for persisting Python objects.
