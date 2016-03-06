@@ -239,9 +239,9 @@ map<K,Z> aggregateByKey(iterator<pair<K,V>>,  // input data
 \end{onlyenv}
 \begin{onlyenv}<2>
 \begin{verbatim}
-def filter(in: Iterator[X], f: X => Boolean): Iterator[X]
-def map(in: Iterator[X], f: X => Y): Iterator[Y]
-def flatten(in: Iterator[Iterator[Y]]): Iterator[Y]
+def filter( in: Iterator[X], f: X => Boolean):     Iterator[X]
+def map(    in: Iterator[X], f: X => Y):           Iterator[Y]
+def flatten(in: Iterator[Iterator[Y]]):            Iterator[Y]
 def flatMap(in: Iterator[X], f: X => Iterator[Y]): Iterator[Y]
 
 def reduce(in: Iterator[Y], f: (Y,Y) => Y): Y
@@ -249,7 +249,8 @@ def aggregate(in: Iterator[Y], zero: Z, f: (Y,Z) => Z): Z
 
 def groupByKey(in: Iterator[(K,V)]): Map[K,Seq[V]]
 
-def reduceByKey(in: Iterator[(K,V)], f: (V,V) => V): Map[K,V]
+def reduceByKey(in: Iterator[(K,V)],
+                merge: (V,V) => V): Map[K,V]
 
 def aggregateByKey(in: Iterator[(K,V)],
                    zero: Z,
