@@ -196,7 +196,7 @@ Apache includes competing projects that reproduce each other's functionality: \t
 \begin{frame}[fragile]{Map-reduce paradigm}
 Standard functional primitives in C++ type syntax:
 \begin{itemize}
-\item {\tt list<Y> map(list<X> input, Y(X))}
+\item {\tt list<Y> map(list<X> input, function<Y(X)>)}
 \item {\tt filter}
 \item {\tt flatMap}
 \item {\tt reduce}
@@ -214,7 +214,7 @@ SELECT <map> FROM source WHERE <filter> GROUP BY <groupByKey>
 \end{verbatim}
 
 \vspace{0.5 cm}
-Hadoop ``mappers'' are like {\tt flatMap}, in that a single input can yield zero or more outputs, and Hadoop ``reducers'' are like {\tt aggregateByKey}, in that they can produce a different output type than they receive as input.
+Hadoop ``mappers'' are as powerful as {\tt flatMap} and Hadoop ``reducers'' are actually {\tt aggregateByKey}.
 \end{frame}
 
 \end{document}
