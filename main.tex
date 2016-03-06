@@ -196,22 +196,20 @@ Apache includes competing projects that reproduce each other's functionality: \t
 \begin{frame}[fragile]{Map-reduce paradigm}
 Standard functional primitives in C++ type syntax:
 \begin{itemize}
-\item {\tt list<Y> map(list<X> input, function<Y(X)>)}
-\item {\tt filter}
-\item {\tt flatMap}
-\item {\tt reduce}
-\item {\tt fold}
-\item {\tt groupByKey}
-\item {\tt reduceByKey}
-\item {\tt aggregateByKey}
+\item {\tt iterator<X> filter(iterator<X> input, function<bool(X)> f)}
+\item {\tt iterator<Y> map(iterator<X> input, function<Y(X)> f)}
+\item {\tt iterator<Y> flatMap(iterator<X> input, function<iterator<Y>(X)> f)}
+\item {\tt Y reduce(iterator<Y> input, function<Y(Y,Y)> f)}
+\item {\tt map<K,vector<V>> groupByKey(iterator<pair<K,V>> input)}
+\item {\tt map<K,V> reduceByKey(iterator<pair<K,V>> input, function<V(V,V)> f)}
+\item {\tt map<K,Z> aggregateByKey(iterator<pair<K,V>> input, Z zero, function<Z(V,Z)> seq, function<Z(Z,Z)> comb)}
 \end{itemize}
 
-\vspace{0.5 cm}
-A standard SQL statement uses three of the above:
-
-\begin{verbatim}
-SELECT <map> FROM source WHERE <filter> GROUP BY <groupByKey>
-\end{verbatim}
+%% \vspace{0.5 cm}
+%% A standard SQL statement uses three of the above:
+%% \begin{verbatim}
+%% SELECT <map> FROM source WHERE <filter> GROUP BY <groupByKey>
+%% \end{verbatim}
 
 \vspace{0.5 cm}
 Hadoop ``mappers'' are as powerful as {\tt flatMap} and Hadoop ``reducers'' are actually {\tt aggregateByKey}.
