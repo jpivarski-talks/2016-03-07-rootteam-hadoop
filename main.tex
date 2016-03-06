@@ -225,7 +225,7 @@ iterator<Y> flatMap(iterator<X>, function<iterator<Y>(X)>);
 Y reduce(iterator<Y>, function<Y(Y,Y)>);      // sum, max, etc.
 Z aggregate(iterator<Y>, Z, function<Z(Y,Z)>);   // more general
 
-map<K,array<V>> groupByKey(iterator<pair<K,V>>); // like SQL
+map<K,array<V>> groupByKey(iterator<pair<K,V>>); // like SQL's
 
 map<K,V> reduceByKey(iterator<pair<K,V>>,     // input data
                      function<V(V,V)>);       // merge
