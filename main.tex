@@ -162,7 +162,7 @@ Often the only way to access the Hadoop cluster was from Citrix to a Windows VM 
 Some clusters were set up with \textcolor{darkblue}{Hue}, to upload job JARs through a website, but the website was only accessible through these VMs.
 \end{frame}
 
-\begin{frame}{Goals and organization}
+\begin{frame}{Goals and code organization}
 
 \begin{block}{Factorization}
 Hadoop is both a cluster and an analysis framework, like GRID and ROOT combined. Newer projects tend to be better factorized.
@@ -188,9 +188,7 @@ Pretty quickly, everyone was writing layers on top of Hadoop. Just the Python on
 \includegraphics[width=\linewidth]{hadoop_versions.png}
 \end{frame}
 
-\begin{frame}{Organization}
-
-\begin{block}{Apache Software Foundation}
+\begin{frame}{Apache Software Foundation}
 Software projects must be cleaned up to be included in Apache (Hadoop branching resulted from competition between Apache clean-up and Cloudera/MapR/IBM/Microsoft feature requests).
 
 \begin{itemize}
@@ -201,7 +199,6 @@ Software projects must be cleaned up to be included in Apache (Hadoop branching 
 \end{itemize}
 
 Apache includes competing projects that reproduce each other's functionality: \textcolor{darkblue}{Storm}, \textcolor{darkblue}{Spark-Streaming}, \textcolor{darkblue}{S4}, \textcolor{darkblue}{Samza}, \textcolor{darkblue}{Flink} are all distributed stream processors.
-\end{block}
 \end{frame}
 
 \begin{frame}{Map-reduce paradigm}
