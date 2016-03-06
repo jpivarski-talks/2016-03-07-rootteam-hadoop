@@ -197,7 +197,8 @@ Apache includes competing projects that reproduce each other's functionality: \t
 User supplies a ``map'' function and a ``reduce'' function.
 \begin{description}
 \item[map] converts each input {\tt X} into a key value pair: {\tt pair<K,V>}.
-\item[reduce] sees all values {\tt iterator<V>} with a given key {\tt K} and produces some output {\tt Z}.
+\item[reduce] sees all values {\tt iterator<V>} associated with a given key {\tt K} and produces some output {\tt Z}.
+\item[secondary sort] a trick to sort {\tt iterator<V>} as a by-product of shuffling keys.
 \end{description}
 
 \begin{center}
