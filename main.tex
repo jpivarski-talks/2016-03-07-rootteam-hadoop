@@ -214,8 +214,9 @@ User supplies a ``map'' function and a ``reduce'' function.
 \end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Spark's functional primitives in C++ type syntax}
+\begin{frame}[fragile]{Spark's functional primitives in \only<1>{C++}\only<2>{Scala} type syntax}
 \small
+\begin{onlyenv}<1>
 \begin{verbatim}
 iterator<X> filter(iterator<X>, function<bool(X)>);
 iterator<Y> map(iterator<X>, function<Y(X)>);
@@ -235,6 +236,27 @@ map<K,Z> aggregateByKey(iterator<pair<K,V>>,  // input data
                         function<Z(V,Z)>,     // increment
                         function<Z(Z,Z)>);    // combine
 \end{verbatim}
+\end{onlyenv}
+\begin{onlyenv}<2>
+\begin{verbatim}
+def filter(Iterator[X], X => Boolean): Iterator[X]
+def map(Iterator[X], X => Y): Iterator[Y]
+def flatten(Iterator[Iterator[Y]]): Iterator[Y]
+def flatMap(Iterator[X], X => Iterator[Y]): Iterator[Y]
+
+def reduce(Iterator[Y], (Y,Y) => Y): Y        // sum, max, etc.
+def aggregate(Iterator[Y], Z, (Y,Z) => Z): Z  // more general
+
+def groupByKey(Iterator[(K,V)]): Map[K,Seq[V]]  // like SQL's
+
+def reduceByKey(Iterator[(K,V)], (V,V) => V): Map[K,V]
+
+def aggregateByKey(Iterator[(K,V)],           // input data
+                   Z,                         // starting value
+                   (V,Z) => Z,                // increment
+                   (Z,Z) => Z): Map[K,Z]      // combine
+\end{verbatim}
+\end{onlyenv}
 
 \normalsize
 Hadoop's ``mappers'' are actually {\tt flatMap} (which includes the possibility of filtering) and its ``reducers'' are {\tt aggregateByKey}.
