@@ -195,15 +195,15 @@ Apache includes competing projects that reproduce each other's functionality: \t
 
 \begin{frame}[fragile]{Map-reduce paradigm}
 Standard functional primitives in C++ type syntax:
-\begin{itemize}
-\item {\tt iterator<X> filter(iterator<X>, function<bool(X)>)}
-\item {\tt iterator<Y> map(iterator<X>, function<Y(X)>)}
-\item {\tt iterator<Y> flatMap(iterator<X>, function<iterator<Y>(X)>)}
-\item {\tt Y reduce(iterator<Y>, function<Y(Y,Y)>)}
-\item {\tt map<K,vector<V>> groupByKey(iterator<pair<K,V>>)}
-\item {\tt map<K,V> reduceByKey(iterator<pair<K,V>>, function<V(V,V)>)}
-\item {\tt map<K,Z> aggregateByKey(iterator<pair<K,V>>, Z, function<Z(V,Z)>, function<Z(Z,Z)>)}
-\end{itemize}
+\begin{verbatim}
+iterator<X> filter(iterator<X>, function<bool(X)>)
+iterator<Y> map(iterator<X>, function<Y(X)>)
+iterator<Y> flatMap(iterator<X>, function<iterator<Y>(X)>)
+Y reduce(iterator<Y>, function<Y(Y,Y)>)
+map<K,vector<V>> groupByKey(iterator<pair<K,V>>)
+map<K,V> reduceByKey(iterator<pair<K,V>>, function<V(V,V)>)
+map<K,Z> aggregateByKey(iterator<pair<K,V>>, Z, function<Z(V,Z)>, function<Z(Z,Z)>)
+\end{verbatim}
 
 %% \vspace{0.5 cm}
 %% A standard SQL statement uses three of the above:
