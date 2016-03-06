@@ -154,4 +154,23 @@ Often the only way to access the Hadoop cluster was from Citrix to a Windows VM 
 Some clusters were set up with Hue, to upload job JARs through a website, but the website was only accessible through these VMs.
 \end{frame}
 
+\begin{frame}{Goals and organization}
+
+\begin{block}{Factorization}
+Hadoop is both a cluster and an analysis framework, like CRAB and CMSSW combined. Newer projects tend to be better factorized.
+\end{block}
+
+\begin{block}{Hundred flowers blooming}
+Hadoop itself is a mess: user code must be compiled against a Hadoop version, the version history is complex and branches (0.23 is newer than 1.0), that JAR must include dependencies but not include Hadoop, common features like secondary sorting are actually just common user hacks\ldots
+
+Pretty quickly, everyone was writing layers on top of Hadoop. Just the Python ones: \textcolor{darkblue}{mrjob}, \textcolor{darkblue}{dumbo}, \textcolor{darkblue}{luigi}, \textcolor{darkblue}{hadoopy}, \textcolor{darkblue}{pydoop}, \textcolor{darkblue}{happy}, \textcolor{darkblue}{hipy}, I wrote one\ldots
+\end{block}
+
+
+
+
+\end{frame}
+
+
+
 \end{document}
