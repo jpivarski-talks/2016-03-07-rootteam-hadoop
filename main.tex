@@ -199,10 +199,18 @@ Standard functional primitives in C++ type syntax:
 iterator<X> filter(iterator<X>, function<bool(X)>)
 iterator<Y> map(iterator<X>, function<Y(X)>)
 iterator<Y> flatMap(iterator<X>, function<iterator<Y>(X)>)
+
 Y reduce(iterator<Y>, function<Y(Y,Y)>)
+
 map<K,vector<V>> groupByKey(iterator<pair<K,V>>)
-map<K,V> reduceByKey(iterator<pair<K,V>>, function<V(V,V)>)
-map<K,Z> aggregateByKey(iterator<pair<K,V>>, Z, function<Z(V,Z)>, function<Z(Z,Z)>)
+
+map<K,V> reduceByKey(iterator<pair<K,V>>,     // input data
+                     function<V(V,V)>)        // merge
+
+map<K,Z> aggregateByKey(iterator<pair<K,V>>,  // input data
+                        Z,                    // starting value
+                        function<Z(V,Z)>,     // increment
+                        function<Z(Z,Z)>)     // combine
 \end{verbatim}
 
 %% \vspace{0.5 cm}
