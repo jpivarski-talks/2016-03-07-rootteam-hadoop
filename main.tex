@@ -206,7 +206,7 @@ User supplies a ``map'' function and a ``reduce'' function.
 \end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Functional primitives in C++ type syntax}
+\begin{frame}[fragile]{Standard functional primitives in C++ type syntax}
 \small
 \begin{verbatim}
 iterator<X> filter(iterator<X>, function<bool(X)>);
@@ -216,7 +216,7 @@ iterator<Y> flatMap(iterator<X>, function<list<Y>(X)>);
 
 Y reduce(iterator<Y>, function<Y(Y,Y)>);      // sum, max, etc.
 
-map<K,list<V>> groupByKey(iterator<pair<K,V>>);
+map<K,list<V>> groupByKey(iterator<pair<K,V>>);  // like SQL
 
 map<K,V> reduceByKey(iterator<pair<K,V>>,     // input data
                      function<V(V,V)>);       // merge
@@ -229,15 +229,6 @@ map<K,Z> aggregateByKey(iterator<pair<K,V>>,  // input data
 
 \normalsize
 Hadoop's ``mappers'' are as powerful as {\tt flatMap} and ``reducers'' are {\tt aggregateByKey}.
-
-%% \vspace{0.5 cm}
-%% A standard SQL statement uses three of the above:
-%% \begin{verbatim}
-%% SELECT <map> FROM source WHERE <filter> GROUP BY <groupByKey>
-%% \end{verbatim}
-
-%% \vspace{0.5 cm}
-%% Hadoop ``mappers'' are as powerful as {\tt flatMap} and Hadoop ``reducers'' are actually {\tt aggregateByKey}.
 \end{frame}
 
 \end{document}
