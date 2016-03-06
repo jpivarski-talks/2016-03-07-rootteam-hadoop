@@ -267,7 +267,7 @@ dataset = sc.rootRDD("root://fnal.gov/*.root")
 histograms =
   dataset.filter(lambda event: event.fTemperature > 20)
          .flatMap(lambda event: event.fTracks)
-         .filter(track => track.fValid)
+         .filter(lambda track: track.fValid)
          .map(lambda t: (t.fTriggerBits,
                          math.sqrt(t.fPx**2 + t.fPy**2)))
          .aggregateByKey(TH1F(100, 0, 30),
