@@ -196,13 +196,13 @@ Apache includes competing projects that reproduce each other's functionality: \t
 \begin{frame}[fragile]{Map-reduce paradigm}
 Standard functional primitives in C++ type syntax:
 \begin{itemize}
-\item {\tt iterator<X> filter(iterator<X> input, function<bool(X)> f)}
-\item {\tt iterator<Y> map(iterator<X> input, function<Y(X)> f)}
-\item {\tt iterator<Y> flatMap(iterator<X> input, function<iterator<Y>(X)> f)}
-\item {\tt Y reduce(iterator<Y> input, function<Y(Y,Y)> f)}
-\item {\tt map<K,vector<V>> groupByKey(iterator<pair<K,V>> input)}
-\item {\tt map<K,V> reduceByKey(iterator<pair<K,V>> input, function<V(V,V)> f)}
-\item {\tt map<K,Z> aggregateByKey(iterator<pair<K,V>> input, Z zero, function<Z(V,Z)> seq, function<Z(Z,Z)> comb)}
+\item {\tt iterator<X> filter(iterator<X>, function<bool(X)>)}
+\item {\tt iterator<Y> map(iterator<X>, function<Y(X)>)}
+\item {\tt iterator<Y> flatMap(iterator<X>, function<iterator<Y>(X)>)}
+\item {\tt Y reduce(iterator<Y>, function<Y(Y,Y)>)}
+\item {\tt map<K,vector<V>> groupByKey(iterator<pair<K,V>>)}
+\item {\tt map<K,V> reduceByKey(iterator<pair<K,V>>, function<V(V,V)>)}
+\item {\tt map<K,Z> aggregateByKey(iterator<pair<K,V>>, Z, function<Z(V,Z)>, function<Z(Z,Z)>)}
 \end{itemize}
 
 %% \vspace{0.5 cm}
