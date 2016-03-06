@@ -180,7 +180,7 @@ Pretty quickly, everyone was writing layers on top of Hadoop. Just the Python on
 \begin{frame}{Goals and organization}
 
 \begin{block}{Apache Software Foundation}
-Software projects have to get cleaned up to be included in Apache (Hadoop branching resulted from competition between Apache clean-up and Cloudera/MapR/IBM/Microsoft feature requests).
+Software projects must be cleaned up to be included in Apache (Hadoop branching resulted from competition between Apache clean-up and Cloudera/MapR/IBM/Microsoft feature requests).
 
 \begin{itemize}
 \item Non-profit organization.
@@ -193,5 +193,28 @@ Apache includes competing projects that reproduce each other's functionality: \t
 \end{block}
 \end{frame}
 
+\begin{frame}[fragile]{Map-reduce paradigm}
+Standard functional primitives in C++ type syntax:
+\begin{itemize}
+\item {\tt list<Y> map(list<X> input, Y(X))}
+\item {\tt filter}
+\item {\tt flatMap}
+\item {\tt reduce}
+\item {\tt fold}
+\item {\tt groupByKey}
+\item {\tt reduceByKey}
+\item {\tt aggregateByKey}
+\end{itemize}
+
+\vspace{0.5 cm}
+A standard SQL statement uses three of the above:
+
+\begin{verbatim}
+SELECT <map> FROM source WHERE <filter> GROUP BY <groupByKey>
+\end{verbatim}
+
+\vspace{0.5 cm}
+Hadoop ``mappers'' are like {\tt flatMap}, in that a single input can yield zero or more outputs, and Hadoop ``reducers'' are like {\tt aggregateByKey}, in that they can produce a different output type than they receive as input.
+\end{frame}
 
 \end{document}
