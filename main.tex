@@ -247,7 +247,7 @@ Suppose we want to fill histograms of $p_T$ for tracks with {\tt fValid} from ev
 On the Spark prompt (Scala syntax):
 
 \begin{verbatim}
-val dataset = sc.rootRDD[Event]("root://fnal.gov/Event.root")
+val dataset = sc.rootRDD[Event]("root://fnal.gov/*.root")
 
 val histograms =
   dataset.filter(event => event.fTemperature > 20)
