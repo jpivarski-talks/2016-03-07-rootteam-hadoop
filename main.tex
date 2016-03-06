@@ -239,22 +239,22 @@ map<K,Z> aggregateByKey(iterator<pair<K,V>>,  // input data
 \end{onlyenv}
 \begin{onlyenv}<2>
 \begin{verbatim}
-def filter(Iterator[X], X => Boolean): Iterator[X]
-def map(Iterator[X], X => Y): Iterator[Y]
-def flatten(Iterator[Iterator[Y]]): Iterator[Y]
-def flatMap(Iterator[X], X => Iterator[Y]): Iterator[Y]
+def filter(in: Iterator[X], f: X => Boolean): Iterator[X]
+def map(in: Iterator[X], f: X => Y): Iterator[Y]
+def flatten(in: Iterator[Iterator[Y]]): Iterator[Y]
+def flatMap(in: Iterator[X], f: X => Iterator[Y]): Iterator[Y]
 
-def reduce(Iterator[Y], (Y,Y) => Y): Y        // sum, max, etc.
-def aggregate(Iterator[Y], Z, (Y,Z) => Z): Z  // more general
+def reduce(in: Iterator[Y], f: (Y,Y) => Y): Y
+def aggregate(in: Iterator[Y], zero: Z, f: (Y,Z) => Z): Z
 
-def groupByKey(Iterator[(K,V)]): Map[K,Seq[V]]  // like SQL's
+def groupByKey(in: Iterator[(K,V)]): Map[K,Seq[V]]
 
-def reduceByKey(Iterator[(K,V)], (V,V) => V): Map[K,V]
+def reduceByKey(in: Iterator[(K,V)], f: (V,V) => V): Map[K,V]
 
-def aggregateByKey(Iterator[(K,V)],           // input data
-                   Z,                         // starting value
-                   (V,Z) => Z,                // increment
-                   (Z,Z) => Z): Map[K,Z]      // combine
+def aggregateByKey(in: Iterator[(K,V)],
+                   zero: Z,
+                   incr: (V,Z) => Z,
+                   comb: (Z,Z) => Z): Map[K,Z]
 \end{verbatim}
 \end{onlyenv}
 
