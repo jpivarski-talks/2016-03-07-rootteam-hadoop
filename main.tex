@@ -244,7 +244,7 @@ def map(    in: Iterator[X], f: X => Y):           Iterator[Y]
 def flatten(in: Iterator[Iterator[Y]]):            Iterator[Y]
 def flatMap(in: Iterator[X], f: X => Iterator[Y]): Iterator[Y]
 
-def reduce(in: Iterator[Y], f: (Y,Y) => Y): Y
+def reduce(   in: Iterator[Y], f: (Y,Y) => Y): Y
 def aggregate(in: Iterator[Y], zero: Z, f: (Y,Z) => Z): Z
 
 def groupByKey(in: Iterator[(K,V)]): Map[K,Seq[V]]
