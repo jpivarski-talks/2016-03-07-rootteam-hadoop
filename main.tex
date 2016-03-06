@@ -243,21 +243,38 @@ Hadoop's ``mappers'' are actually {\tt flatMap} (which includes the possibility 
 \begin{frame}[fragile]{Example of using primitives}
 Suppose we want to fill histograms of $p_T$ for tracks with {\tt fValid} from events with {\tt fTemperature > 20}, with one histogram for each distinct combination of {\tt fTriggerBits}.
 
+\begin{onlyenv}<1>
 \vspace{0.2 cm}
 On the Spark prompt (Scala syntax):
 \begin{verbatim}
 val dataset = sc.rootRDD[Event]("root://fnal.gov/*.root")
-
 val histograms =
   dataset.filter(event => event.fTemperature > 20)
          .flatMap(event => event.fTracks)
-         .filter(t => t.fValid)
+         .filter(track => track.fValid)
          .map(t => (t.fTriggerBits,
                     Math.sqrt(t.fPx*t.fPx + t.fPy*t.fPy)))
          .aggregateByKey(new TH1F(100, 0, 30))(
-                        (pt, hist) => hist.Fill(pt),
-                        (h1, h2) => h1.Add(h2); h1)
+                         (pt, hist) => hist.Fill(pt),
+                         (h1, h2) => h1.Add(h2))
 \end{verbatim}
+\end{onlyenv}
+\begin{onlyenv}<2>
+\vspace{0.2 cm}
+On the PySpark prompt (Python syntax):
+\begin{verbatim}
+dataset = sc.rootRDD("root://fnal.gov/*.root")
+histograms =
+  dataset.filter(lambda event: event.fTemperature > 20)
+         .flatMap(lambda event: event.fTracks)
+         .filter(track => track.fValid)
+         .map(lambda t: (t.fTriggerBits,
+                         math.sqrt(t.fPx**2 + t.fPy**2)))
+         .aggregateByKey(TH1F(100, 0, 30),
+                         lambda pt, hist: hist.Fill(pt),
+                         lambda h1, h2: h1.Add(h2))
+\end{verbatim}
+\end{onlyenv}
 
 This is a distributed process that runs over a cluster.
 \end{frame}
