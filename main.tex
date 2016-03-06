@@ -240,4 +240,27 @@ map<K,Z> aggregateByKey(iterator<pair<K,V>>,  // input data
 Hadoop's ``mappers'' are actually {\tt flatMap} (which includes the possibility of filtering) and its ``reducers'' are {\tt aggregateByKey}.
 \end{frame}
 
+\begin{frame}[fragile]{Example of using primitives}
+Suppose we want to fill histograms of $p_T$ for tracks with {\tt fValid} from events with {\tt fTemperature > 20}, with one histogram for each distinct combination of {\tt fTriggerBits}.
+
+\vfill
+On the Spark prompt (Scala syntax):
+
+\begin{verbatim}
+val dataset = sc.rootRDD[Event]("root://fnal.gov/Event.root")
+
+val histograms =
+  dataset.filter(event => event.fTemperature > 20)
+         .flatMap(event => event.fTracks)
+         .filter(t => t.fValid)
+         .map(t => (t.fTriggerBits,
+                    Math.sqrt(t.fPx*t.fPx + t.fPy*t.fPy)))
+         .aggregateByKey(new TH1F(100, 0, 30))(
+                        (pt, hist) => hist.Fill(pt),
+                        (h1, h2) => h1.Add(h2); h1)
+\end{verbatim}
+
+This is a distributed process that runs over a cluster.
+\end{frame}
+
 \end{document}
